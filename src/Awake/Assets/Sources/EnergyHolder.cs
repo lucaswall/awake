@@ -5,6 +5,7 @@ public class EnergyHolder : MonoBehaviour {
 
 	public SpriteRenderer holderIndicator;
 	public float energyDisipation;
+	public float pushBackCost;
 
 	float energy;
 
@@ -37,8 +38,9 @@ public class EnergyHolder : MonoBehaviour {
 		return energy >= 1.0f;
 	}
 
-	public void DrainAllEnergy() {
-		energy = 0;
+	public void DrainPushBackEnergy() {
+		energy -= pushBackCost;
+		if ( energy <= 0.0f ) energy = 0.0f;
 		SetAlpha(energy);
 	}
 

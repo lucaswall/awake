@@ -60,7 +60,7 @@ public class SigilCanvas : MonoBehaviour {
 	void DestroySigil() {
 		Destroy(activeGroup);
 		activeGroup = null;
-		energyHolder.DrainAllEnergy();
+		energyHolder.DrainPushBackEnergy();
 		UnlockTrace();
 	}
 
