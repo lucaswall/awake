@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using GameAnalyticsSDK;
 
 public class SigilCanvas : MonoBehaviour {
 
@@ -52,6 +53,8 @@ public class SigilCanvas : MonoBehaviour {
 		if ( IsSigilComplete() ) {
 			StartCoroutine(SigilCompleteSequence());
 			sigilCountText.text = (++sigilCounter).ToString();
+			GameAnalytics.NewProgressionEvent(GA_Progression.GAProgressionStatus.GAProgressionStatusComplete,
+					"level", sigilCounter.ToString(), "", sigilCounter);
 		} else {
 			EnableNextFragment();
 		}
