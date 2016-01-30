@@ -5,6 +5,8 @@ public class Demon : MonoBehaviour {
 
 	public SpriteRenderer leftEye;
 	public SpriteRenderer rightEye;
+	public SpriteRenderer leftEyebrow;
+	public SpriteRenderer rightEyebrow;
 	public Transform leftEyeLid;
 	public Transform rightEyeLid;
 	public float eyeLidMoveY;
@@ -101,6 +103,8 @@ public class Demon : MonoBehaviour {
 		c.a = a;
 		leftEye.color = c;
 		rightEye.color = c;
+		leftEyebrow.color = c;
+		rightEyebrow.color = c;
 	}
 
 	void SetEyeLidPosition(Transform eyelid) {
