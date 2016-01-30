@@ -3,7 +3,15 @@ using System.Collections;
 
 public class SigilFragment : MonoBehaviour {
 
-	public Collider touchCollider;
+	Collider touchCollider;
+	SpriteRenderer sprite;
+	SigilCanvas sigilCanvas;
+
+	void Awake() {
+		touchCollider = GetComponent<Collider>();
+		sprite = GetComponent<SpriteRenderer>();
+		sigilCanvas = GetComponentInParent<SigilCanvas>();
+	}
 
 	void Update() {
 		for ( int i = 0; i < Input.touchCount; i++ ) {
@@ -22,7 +30,8 @@ public class SigilFragment : MonoBehaviour {
 
 	void ProcessTouch(Touch touch) {
 		touchCollider.enabled = false;
-		Destroy(gameObject);
+		sprite.enabled = false;
+		sigilCanvas.SigilFragmentComplete(this);
 	}
 
 }
