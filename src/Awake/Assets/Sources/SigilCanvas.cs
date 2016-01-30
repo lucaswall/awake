@@ -14,6 +14,8 @@ public class SigilCanvas : MonoBehaviour {
 	public AudioClip sigilCompleteSound;
 	public AudioClip sigilFailedSound;
 	public Text sigilCountText;
+	public Text swipeText;
+	public float swipeTextSpeed;
 
 	bool drawing = false;
 	int touchId;
@@ -21,9 +23,13 @@ public class SigilCanvas : MonoBehaviour {
 	SigilFragment[] fragments;
 	int currentFragment;
 	int sigilCounter = 0;
+	bool showText = false;
+	float textCounter;
+	bool tutorialDone = false;
 
 	void Start() {
 		sigilCountText.text = "";
+		swipeText.enabled = false;
 	}
 
 	void Update() {
@@ -32,6 +38,13 @@ public class SigilCanvas : MonoBehaviour {
 			else CheckForMoveTouch();
 		} else {
 			if ( energyHolder.IsFull() ) InstantiateNewSigil();
+		}
+		if ( showText ) {
+			textCounter -= Time.deltaTime;
+			if ( textCounter <= 0.0f ) {
+				textCounter = swipeTextSpeed;
+				swipeText.enabled = ! swipeText.enabled;
+			}
 		}
 	}
 
@@ -46,6 +59,11 @@ public class SigilCanvas : MonoBehaviour {
 		}
 		fragments[currentFragment].EnableFragment();
 		demon.Wakeup();
+		if ( ! tutorialDone ) {
+			textCounter = swipeTextSpeed;
+			swipeText.enabled = true;
+			showText = true;
+		}
 	}
 
 	public void SigilFragmentComplete(SigilFragment fragment) {
@@ -55,8 +73,17 @@ public class SigilCanvas : MonoBehaviour {
 			sigilCountText.text = (++sigilCounter).ToString();
 			GameAnalytics.NewProgressionEvent(GA_Progression.GAProgressionStatus.GAProgressionStatusComplete,
 					"level", sigilCounter.ToString(), "", sigilCounter);
+			DisableSwipeText();
 		} else {
 			EnableNextFragment();
+		}
+	}
+
+	void DisableSwipeText() {
+		if ( showText ) {
+			tutorialDone = true;
+			showText = false;
+			swipeText.enabled = false;
 		}
 	}
 
@@ -156,6 +183,7 @@ public class SigilCanvas : MonoBehaviour {
 	public void AbortSigil() {
 		DestroySigil();
 		sigilTrace.Clear();
+		DisableSwipeText();
 	}
 
 }
