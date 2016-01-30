@@ -23,4 +23,13 @@ public class EnergyHolder : MonoBehaviour {
 		SetAlpha(energy);
 	}
 
+	public bool IsFull() {
+		return energy >= 1.0f;
+	}
+
+	public void DrainAllEnergy() {
+		energy = 0;
+		SetAlpha(energy);
+	}
+
 }

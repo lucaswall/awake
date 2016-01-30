@@ -10,7 +10,14 @@ public class SigilFragment : MonoBehaviour {
 	void Awake() {
 		touchCollider = GetComponent<Collider>();
 		sprite = GetComponent<SpriteRenderer>();
+	}
+
+	public void OnCanvas() {
 		sigilCanvas = GetComponentInParent<SigilCanvas>();
+	}
+
+	public bool IsComplete() {
+		return ! sprite.enabled;
 	}
 
 	void Update() {
