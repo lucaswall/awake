@@ -8,30 +8,34 @@ public class EnergyHolder : MonoBehaviour {
 	public float pushBackCost;
 
 	float energy;
+	int energyProperty;
+
+	void Awake() {
+		energyProperty = Shader.PropertyToID("_Energy");
+	}
 
 	void Start() {
-		SetAlpha(0.0f);
+		SetEnergy(0.0f);
 	}
 
 	void Update() {
 		if ( energy > 0.0f ) {
 			energy -= energyDisipation * Time.deltaTime;
 			if ( energy < 0.0f ) energy = 0.0f;
-			SetAlpha(energy);
+			SetEnergy(energy);
 		}
 	}
 
-	void SetAlpha(float a) {
-		Color c = holderIndicator.color;
-		c.a = a;
-		holderIndicator.color = c;
+	void SetEnergy(float e) {
+		energy = e;
+		holderIndicator.material.SetFloat(energyProperty, energy);
 	}
 
 	public void AddEnergy(float inc) {
 		energy += inc;
 		if ( energy > 1.0f ) energy = 1.0f;
 		if ( energy < 0.0f ) energy = 0.0f;
-		SetAlpha(energy);
+		SetEnergy(energy);
 		if ( energy == 1.0f ) GameEvents.EnergyHolderFull();
 	}
 
@@ -42,7 +46,7 @@ public class EnergyHolder : MonoBehaviour {
 	public void DrainPushBackEnergy() {
 		energy -= pushBackCost;
 		if ( energy <= 0.0f ) energy = 0.0f;
-		SetAlpha(energy);
+		SetEnergy(energy);
 	}
 
 }
