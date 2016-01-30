@@ -6,6 +6,8 @@ public class Demon : MonoBehaviour {
 	public SpriteRenderer leftEye;
 	public SpriteRenderer rightEye;
 	public float inititalAwakeSpeed;
+	public AudioSource audioSource;
+	public AudioClip sigilSound;
 
 	float awakeSpeed = 0.0f;
 	float awakePercent = 0.0f;
@@ -20,6 +22,13 @@ public class Demon : MonoBehaviour {
 
 	public void Wakeup() {
 		awakeSpeed = inititalAwakeSpeed;
+	}
+
+	public void PushBack() {
+		audioSource.PlayOneShot(sigilSound);
+		awakeSpeed = 0.0f;
+		awakePercent = 0.0f;
+		SetAlpha(awakePercent);
 	}
 
 	void AwakeStep() {

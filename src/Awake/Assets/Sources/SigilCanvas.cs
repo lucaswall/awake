@@ -7,6 +7,7 @@ public class SigilCanvas : MonoBehaviour {
 	public EnergyHolder energyHolder;
 	public ParticleSystem sigilTrace;
 	public Demon demon;
+	public AudioSource audioSource;
 
 	bool drawing = false;
 	int touchId;
@@ -36,8 +37,12 @@ public class SigilCanvas : MonoBehaviour {
 	}
 
 	public void SigilFragmentComplete(SigilFragment fragment) {
-		if ( IsSigilComplete() ) DestroySigil();
-		else EnableNextFragment();
+		if ( IsSigilComplete() ) {
+			DestroySigil();
+			demon.PushBack();
+		} else {
+			EnableNextFragment();
+		}
 	}
 
 	void DestroySigil() {
@@ -53,7 +58,7 @@ public class SigilCanvas : MonoBehaviour {
 	}
 
 	bool IsSigilComplete() {
-		return currentFragment >= fragments.Length;
+		return currentFragment >= fragments.Length - 1;
 	}
 
 	void CheckForInitialTouch() {
