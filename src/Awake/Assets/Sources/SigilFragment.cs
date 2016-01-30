@@ -17,7 +17,7 @@ public class SigilFragment : MonoBehaviour {
 		sigilCanvas = GetComponentInParent<SigilCanvas>();
 	}
 
-	void DisableFragment() {
+	public void DisableFragment() {
 		touchCollider.enabled = false;
 		sprite.enabled = false;
 	}

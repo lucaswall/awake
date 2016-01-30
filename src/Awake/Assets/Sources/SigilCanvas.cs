@@ -50,10 +50,10 @@ public class SigilCanvas : MonoBehaviour {
 	}
 
 	IEnumerator SigilCompleteSequence() {
-		yield return new WaitForSeconds(0.3f);
+		yield return new WaitForSeconds(0.15f);
 		audioSource.PlayOneShot(sigilCompleteSound);
 		DestroySigil();
-		yield return new WaitForSeconds(0.3f);
+		yield return new WaitForSeconds(0.15f);
 		demon.PushBack();
 	}
 
@@ -94,7 +94,7 @@ public class SigilCanvas : MonoBehaviour {
 						break;
 					case TouchPhase.Ended:
 					case TouchPhase.Canceled:
-						UnlockTrace();
+						FailedSigilReset();
 						break;
 				}
 				return;
@@ -129,8 +129,16 @@ public class SigilCanvas : MonoBehaviour {
 		if ( TouchIsInArea(touch) ) {
 			SetSigilTracePosition(touch.position);
 		} else {
-			UnlockTrace();
+			FailedSigilReset();
 		}
+	}
+
+	void FailedSigilReset() {
+		audioSource.PlayOneShot(sigilFailedSound);
+		UnlockTrace();
+		fragments[currentFragment].DisableFragment();
+		currentFragment = 0;
+		fragments[currentFragment].EnableFragment();
 	}
 
 }
