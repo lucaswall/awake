@@ -36,7 +36,7 @@ public class SigilCanvas : MonoBehaviour {
 	}
 
 	void InstantiateNewSigil() {
-		Debug.Log("New sigil!");
+		//Debug.Log("New sigil!");
 		activeGroup = Instantiate(sigilPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 		activeGroup.transform.SetParent(transform, false);
 		fragments = activeGroup.GetComponentsInChildren<SigilFragment>();

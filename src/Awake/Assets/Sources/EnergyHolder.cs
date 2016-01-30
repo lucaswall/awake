@@ -32,6 +32,7 @@ public class EnergyHolder : MonoBehaviour {
 		if ( energy > 1.0f ) energy = 1.0f;
 		if ( energy < 0.0f ) energy = 0.0f;
 		SetAlpha(energy);
+		if ( energy == 1.0f ) GameEvents.EnergyHolderFull();
 	}
 
 	public bool IsFull() {
