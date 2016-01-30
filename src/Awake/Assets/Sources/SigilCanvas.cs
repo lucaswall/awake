@@ -8,6 +8,9 @@ public class SigilCanvas : MonoBehaviour {
 	public ParticleSystem sigilTrace;
 	public Demon demon;
 	public AudioSource audioSource;
+	public AudioClip sigiltouchedSound;
+	public AudioClip sigilCompleteSound;
+	public AudioClip sigilFailedSound;
 
 	bool drawing = false;
 	int touchId;
@@ -38,12 +41,20 @@ public class SigilCanvas : MonoBehaviour {
 	}
 
 	public void SigilFragmentComplete(SigilFragment fragment) {
+		audioSource.PlayOneShot(sigiltouchedSound);
 		if ( IsSigilComplete() ) {
-			DestroySigil();
-			demon.PushBack();
+			StartCoroutine(SigilCompleteSequence());
 		} else {
 			EnableNextFragment();
 		}
+	}
+
+	IEnumerator SigilCompleteSequence() {
+		yield return new WaitForSeconds(0.3f);
+		audioSource.PlayOneShot(sigilCompleteSound);
+		DestroySigil();
+		yield return new WaitForSeconds(0.3f);
+		demon.PushBack();
 	}
 
 	void DestroySigil() {

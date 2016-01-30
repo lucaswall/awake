@@ -6,11 +6,16 @@ public class Demon : MonoBehaviour {
 	public SpriteRenderer leftEye;
 	public SpriteRenderer rightEye;
 	public float inititalAwakeSpeed;
-	public AudioSource audioSource;
+	public AudioSource sigilAudioSource;
 	public AudioClip sigilSound;
+	public AudioSource demonAudioSource;
+	public AudioClip demonPushBackSound;
 	public SpriteRenderer sigilImage;
 	public float sigilFadeSpeed;
 	public float demonFadeSpeed;
+	public CameraShake cameraShake;
+	public float sigilShakeTime;
+	public float sigilShakeAmplitude;
 
 	float awakeSpeed = 0.0f;
 	float awakePercent = 0.0f;
@@ -29,9 +34,11 @@ public class Demon : MonoBehaviour {
 	}
 
 	public void PushBack() {
-		audioSource.PlayOneShot(sigilSound);
+		sigilAudioSource.PlayOneShot(sigilSound);
+		demonAudioSource.PlayOneShot(demonPushBackSound);
 		awakeSpeed = 0.0f;
 		SetSigilAlpha(1.0f);
+		cameraShake.Shake(sigilShakeTime, sigilShakeAmplitude);
 		StartCoroutine(FadeDemonAway());
 		StartCoroutine(FadeSigilAway());
 	}
