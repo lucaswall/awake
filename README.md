@@ -1,12 +1,22 @@
 # Awake!
 ## A Global GameJam 2016 game
 
-Authors:
+### Authors
 
-- Lucas Wall <wall.lucas@gmail.com>
-- Mariana Carril
+- Lucas Wall - <wall.lucas@gmail.com>
+- Mariana Carril - <marianacarril@gmail.com>
 
+
+### Description
+
+The dark demon is awakening. Fight him back!
+
+Focus on the drums. Flow into the trance. Gather energy by tapping on the beat
+and, when ready, swipe to draw the sigil. Again, and again, and again...
+Once awoken, darkness will never stop.
+
+This game was made for the Global GameJam 2016. http://globalgamejam.org/
+
+### Credits
 
 Some SFX were downloaded from: http://www.freesfx.co.uk
-
-
