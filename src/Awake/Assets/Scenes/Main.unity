@@ -1899,6 +1899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEye: {fileID: 101991973}
   rightEye: {fileID: 761925453}
+  inititalAwakeSpeed: 0.05
 --- !u!1 &564002914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,6 +2199,7 @@ MonoBehaviour:
   sigilPrefab: {fileID: 115738, guid: 529de94e4376c4d2a932fea6fef3a6f6, type: 2}
   energyHolder: {fileID: 118407378}
   sigilTrace: {fileID: 127923602}
+  demon: {fileID: 381067072}
 --- !u!4 &1388006113
 Transform:
   m_ObjectHideFlags: 0

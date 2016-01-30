@@ -17,6 +17,11 @@ Once awoken, darkness will never stop.
 
 This game was made for the Global GameJam 2016. http://globalgamejam.org/
 
+The game was built using Unity3D.
+
+You can access its repository at GitHub. https://github.com/lucaswall/awake
+
+
 ### Credits
 
 Some SFX were downloaded from: http://www.freesfx.co.uk

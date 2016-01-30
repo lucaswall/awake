@@ -6,6 +6,7 @@ public class SigilCanvas : MonoBehaviour {
 	public GameObject sigilPrefab;
 	public EnergyHolder energyHolder;
 	public ParticleSystem sigilTrace;
+	public Demon demon;
 
 	bool drawing = false;
 	int touchId;
@@ -28,6 +29,7 @@ public class SigilCanvas : MonoBehaviour {
 		foreach ( SigilFragment fragment in fragments ) {
 			fragment.OnCanvas();
 		}
+		demon.Wakeup();
 	}
 
 	public void SigilFragmentComplete(SigilFragment fragment) {
