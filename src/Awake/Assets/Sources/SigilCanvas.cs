@@ -27,6 +27,10 @@ public class SigilCanvas : MonoBehaviour {
 	float textCounter;
 	bool tutorialDone = false;
 
+	public int SigilCounter {
+		get { return sigilCounter; }
+	}
+
 	void Start() {
 		sigilCountText.text = "";
 		swipeText.enabled = false;
