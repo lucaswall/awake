@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SigilCanvas : MonoBehaviour {
@@ -11,12 +12,18 @@ public class SigilCanvas : MonoBehaviour {
 	public AudioClip sigiltouchedSound;
 	public AudioClip sigilCompleteSound;
 	public AudioClip sigilFailedSound;
+	public Text sigilCountText;
 
 	bool drawing = false;
 	int touchId;
 	GameObject activeGroup = null;
 	SigilFragment[] fragments;
 	int currentFragment;
+	int sigilCounter = 0;
+
+	void Start() {
+		sigilCountText.text = "";
+	}
 
 	void Update() {
 		if ( activeGroup != null ) {
@@ -44,6 +51,7 @@ public class SigilCanvas : MonoBehaviour {
 		audioSource.PlayOneShot(sigiltouchedSound);
 		if ( IsSigilComplete() ) {
 			StartCoroutine(SigilCompleteSequence());
+			sigilCountText.text = (++sigilCounter).ToString();
 		} else {
 			EnableNextFragment();
 		}

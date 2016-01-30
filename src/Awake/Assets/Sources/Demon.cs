@@ -51,11 +51,12 @@ public class Demon : MonoBehaviour {
 		cameraShake.Shake(sigilShakeTime, sigilShakeAmplitude);
 		StartCoroutine(FadeDemonAway());
 		StartCoroutine(FadeSigilAway());
+		ProgressLevel();
 	}
 
 	void ProgressLevel() {
-		awakeSpeed += incrementAwakeSpeed;
-		if ( awakeSpeed > maxAwakeSpeed ) awakeSpeed = maxAwakeSpeed;
+		inititalAwakeSpeed += incrementAwakeSpeed;
+		if ( inititalAwakeSpeed > maxAwakeSpeed ) inititalAwakeSpeed = maxAwakeSpeed;
 	}
 
 	IEnumerator FadeDemonAway() {
