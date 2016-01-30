@@ -1906,8 +1906,8 @@ MonoBehaviour:
   audioSource: {fileID: 381067073}
   sigilSound: {fileID: 8300000, guid: 7378ad0a709bb404eac0f58ef099abbf, type: 3}
   sigilImage: {fileID: 1534245292}
-  sigilFadeSpeed: 0.3
-  demonFadeSpeed: 0.4
+  sigilFadeSpeed: 0.5
+  demonFadeSpeed: 1
 --- !u!82 &381067073
 AudioSource:
   m_ObjectHideFlags: 0

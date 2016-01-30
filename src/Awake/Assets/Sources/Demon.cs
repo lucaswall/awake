@@ -22,7 +22,6 @@ public class Demon : MonoBehaviour {
 
 	void Update() {
 		AwakeStep();
-		FadeSigil();
 	}
 
 	public void Wakeup() {
@@ -34,6 +33,7 @@ public class Demon : MonoBehaviour {
 		awakeSpeed = 0.0f;
 		SetSigilAlpha(1.0f);
 		StartCoroutine(FadeDemonAway());
+		StartCoroutine(FadeSigilAway());
 	}
 
 	IEnumerator FadeDemonAway() {
@@ -46,12 +46,14 @@ public class Demon : MonoBehaviour {
 		SetAlpha(awakePercent);
 	}
 
-	void FadeSigil() {
-		float a = sigilImage.color.a;
-		if ( a <= 0.0f ) return;
-		a -= sigilFadeSpeed * Time.deltaTime;
-		if ( a < 0.0f ) a = 0.0f;
-		SetSigilAlpha(a);
+	IEnumerator FadeSigilAway() {
+		float alpha = 1.0f;
+		while ( alpha > 0.0f ) {
+			alpha -= sigilFadeSpeed * Time.deltaTime;
+			SetSigilAlpha(Mathf.Sin(alpha * Mathf.PI * 0.5f));
+			yield return null;
+		}
+		SetSigilAlpha(0.0f);
 	}
 
 	void AwakeStep() {
