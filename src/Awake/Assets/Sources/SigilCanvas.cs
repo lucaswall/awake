@@ -152,6 +152,7 @@ public class SigilCanvas : MonoBehaviour {
 
 	public void AbortSigil() {
 		DestroySigil();
+		sigilTrace.Clear();
 	}
 
 }
