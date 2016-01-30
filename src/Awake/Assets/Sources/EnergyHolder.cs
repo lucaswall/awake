@@ -4,11 +4,19 @@ using System.Collections;
 public class EnergyHolder : MonoBehaviour {
 
 	public SpriteRenderer holderIndicator;
+	public float energyDisipation;
 
 	float energy;
 
 	void Start() {
 		SetAlpha(0.0f);
+	}
+
+	void Update() {
+		if ( energy > 0.0f ) {
+			energy -= energyDisipation * Time.deltaTime;
+			if ( energy < 0.0f ) energy = 0.0f;
+		}
 	}
 
 	void SetAlpha(float a) {
@@ -20,6 +28,7 @@ public class EnergyHolder : MonoBehaviour {
 	public void AddEnergy(float inc) {
 		energy += inc;
 		if ( energy > 1.0f ) energy = 1.0f;
+		if ( energy < 0.0f ) energy = 0.0f;
 		SetAlpha(energy);
 	}
 

@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holderIndicator: {fileID: 118407376}
+  energyDisipation: 0.1
 --- !u!1 &127923599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,7 +1910,7 @@ GameObject:
   - 82: {fileID: 564002916}
   - 114: {fileID: 564002917}
   m_Layer: 0
-  m_Name: BeatEmitter
+  m_Name: BeatController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2021,7 +2022,8 @@ MonoBehaviour:
   - 0.3
   loopTime: 2.2
   energyHolder: {fileID: 118407378}
-  energyTransferFactor: 0.3
+  energyTransferFactor: 0.8
+  energyBeatCost: 0.3
 --- !u!1 &761925452
 GameObject:
   m_ObjectHideFlags: 0

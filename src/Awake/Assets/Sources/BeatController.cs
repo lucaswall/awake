@@ -9,6 +9,7 @@ public class BeatController : MonoBehaviour {
 	public float loopTime;
 	public EnergyHolder energyHolder;
 	public float energyTransferFactor;
+	public float energyBeatCost;
 
 	float totalTimes = 0.0f;
 
@@ -43,8 +44,7 @@ public class BeatController : MonoBehaviour {
 	}
 
 	void ProcessTouch() {
-		float energyInc = beatIndicator.Intensity();
-		Debug.Log(energyInc);
+		float energyInc = beatIndicator.GetEnergy() - energyBeatCost;
 		energyHolder.AddEnergy(energyInc * energyTransferFactor);
 	}
 
