@@ -34,7 +34,7 @@ public class BeatIndicator : MonoBehaviour {
 	public float GetEnergy() {
 		if ( hasBeenHit ) return 0.0f;
 		hasBeenHit = true;
-		Debug.Log("beat hit! "+sprite.color.a);
+		//Debug.Log("beat hit! "+sprite.color.a);
 		return sprite.color.a;
 	}
 

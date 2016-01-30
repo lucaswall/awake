@@ -25,6 +25,7 @@ public class SigilCanvas : MonoBehaviour {
 	}
 
 	void InstantiateNewSigil() {
+		Debug.Log("New sigil!");
 		activeGroup = Instantiate(sigilPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 		activeGroup.transform.SetParent(transform, false);
 		fragments = activeGroup.GetComponentsInChildren<SigilFragment>();
@@ -109,7 +110,6 @@ public class SigilCanvas : MonoBehaviour {
 
 	void SetSigilTracePosition(Vector2 pos) {
 		Camera camera = Camera.main;
-		Debug.Log(-camera.transform.position.z);
 		Vector3 vec3 = new Vector3(pos.x, pos.y, -camera.transform.position.z);
 		sigilTrace.transform.position = camera.ScreenToWorldPoint(vec3);
 	}
