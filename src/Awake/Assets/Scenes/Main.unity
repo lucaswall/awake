@@ -2054,6 +2054,9 @@ MonoBehaviour:
   inititalAwakeSpeed: 0.1
   incrementAwakeSpeed: 0.02
   maxAwakeSpeed: 0.5
+  initialAwakeTimeout: 10
+  decrementAwakeTimeout: 1
+  minAwakeTimeout: 5
   sigilAudioSource: {fileID: 1534245293}
   sigilSound: {fileID: 8300000, guid: 7378ad0a709bb404eac0f58ef099abbf, type: 3}
   demonAudioSource: {fileID: 381067073}

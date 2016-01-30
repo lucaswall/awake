@@ -13,6 +13,9 @@ public class Demon : MonoBehaviour {
 	public float inititalAwakeSpeed;
 	public float incrementAwakeSpeed;
 	public float maxAwakeSpeed;
+	public float initialAwakeTimeout;
+	public float decrementAwakeTimeout;
+	public float minAwakeTimeout;
 	public AudioSource sigilAudioSource;
 	public AudioClip sigilSound;
 	public AudioSource demonAudioSource;
@@ -30,6 +33,7 @@ public class Demon : MonoBehaviour {
 	float awakePercent = 0.0f;
 	bool awake = false;
 	float eyeLidY;
+	float wakeupTimeout = 0.0f;
 
 	void Start() {
 		eyeLidY = leftEyeLid.position.y;
@@ -39,6 +43,7 @@ public class Demon : MonoBehaviour {
 
 	void Update() {
 		AwakeStep();
+		CheckForWakeupTimeout();
 	}
 
 	public void Wakeup() {
@@ -54,11 +59,24 @@ public class Demon : MonoBehaviour {
 		StartCoroutine(FadeDemonAway());
 		StartCoroutine(FadeSigilAway());
 		ProgressLevel();
+		wakeupTimeout = initialAwakeTimeout;
 	}
 
 	void ProgressLevel() {
 		inititalAwakeSpeed += incrementAwakeSpeed;
 		if ( inititalAwakeSpeed > maxAwakeSpeed ) inititalAwakeSpeed = maxAwakeSpeed;
+		initialAwakeTimeout -= decrementAwakeTimeout;
+		if ( initialAwakeTimeout < minAwakeTimeout ) initialAwakeTimeout = minAwakeTimeout;
+	}
+
+	void CheckForWakeupTimeout() {
+		if ( wakeupTimeout > 0.0f ) {
+			wakeupTimeout -= Time.deltaTime;
+			if ( wakeupTimeout <= 0.0f ) {
+				wakeupTimeout = 0.0f;
+				Wakeup();
+			}
+		}
 	}
 
 	IEnumerator FadeDemonAway() {
