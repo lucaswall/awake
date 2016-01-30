@@ -5,6 +5,9 @@ public class Demon : MonoBehaviour {
 
 	public SpriteRenderer leftEye;
 	public SpriteRenderer rightEye;
+	public Transform leftEyeLid;
+	public Transform rightEyeLid;
+	public float eyeLidMoveY;
 	public float inititalAwakeSpeed;
 	public float incrementAwakeSpeed;
 	public float maxAwakeSpeed;
@@ -24,10 +27,12 @@ public class Demon : MonoBehaviour {
 	float awakeSpeed = 0.0f;
 	float awakePercent = 0.0f;
 	bool awake = false;
+	float eyeLidY;
 
 	void Start() {
-		SetAlpha(0.0f);
+		eyeLidY = leftEyeLid.position.y;
 		SetSigilAlpha(0.0f);
+		UpdateAwakeState();
 	}
 
 	void Update() {
@@ -56,11 +61,11 @@ public class Demon : MonoBehaviour {
 	IEnumerator FadeDemonAway() {
 		while ( awakePercent > 0.0f ) {
 			awakePercent -= demonFadeSpeed * Time.deltaTime;
-			SetAlpha(awakePercent);
+			UpdateAwakeState();
 			yield return null;
 		}
 		awakePercent = 0.0f;
-		SetAlpha(awakePercent);
+		UpdateAwakeState();
 	}
 
 	IEnumerator FadeSigilAway() {
@@ -76,12 +81,18 @@ public class Demon : MonoBehaviour {
 	void AwakeStep() {
 		awakePercent += awakeSpeed * Time.deltaTime;
 		if ( awakePercent > 1.0f ) awakePercent = 1.0f;
-		SetAlpha(awakePercent);
+		UpdateAwakeState();
 		if ( awakePercent >= 1.0f && ! awake ) {
-			awake = true;
-			demonAudioSource.PlayOneShot(demonAttackSound);
-			generalDirector.GameOver();
+			Attack();
 		}
+	}
+
+	void Attack() {
+		awake = true;
+		demonAudioSource.PlayOneShot(demonAttackSound);
+		Destroy(leftEyeLid.gameObject);
+		Destroy(rightEyeLid.gameObject);
+		generalDirector.GameOver();
 	}
 
 	void SetAlpha(float a) {
@@ -91,10 +102,23 @@ public class Demon : MonoBehaviour {
 		rightEye.color = c;
 	}
 
+	void SetEyeLidPosition(Transform eyelid) {
+		Vector3 pos = eyelid.position;
+		pos.y = eyeLidY + eyeLidMoveY * awakePercent;
+		eyelid.position = pos;
+	}
+
 	void SetSigilAlpha(float a) {
 		Color c = sigilImage.color;
 		c.a = a;
 		sigilImage.color = c;
+	}
+
+	void UpdateAwakeState() {
+		if ( awake ) return;
+		SetAlpha(awakePercent);
+		SetEyeLidPosition(leftEyeLid);
+		SetEyeLidPosition(rightEyeLid);
 	}
 
 }
