@@ -197,10 +197,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118407375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: -4.044516, y: -1.3666906, z: -0.0078125}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 166953186}
   m_RootOrder: 4
 --- !u!114 &118407378
 MonoBehaviour:
@@ -240,11 +240,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127923599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: 0.77, z: 0}
+  m_LocalPosition: {x: -11.044516, y: 1.4033093, z: -0.0078125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 166953186}
+  m_RootOrder: 0
 --- !u!199 &127923601
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -1785,6 +1785,71 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &166953184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 166953186}
+  - 114: {fileID: 166953185}
+  - 95: {fileID: 166953187}
+  m_Layer: 0
+  m_Name: GeneralDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &166953185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166953184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f3a038fc2b947258c4083d29aa93ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 166953187}
+  beatController: {fileID: 564002917}
+  sigilCanvas: {fileID: 1388006112}
+--- !u!4 &166953186
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166953184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.044516, y: -0.6333094, z: 0.0078125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 127923600}
+  - {fileID: 289667627}
+  - {fileID: 381067071}
+  - {fileID: 1388006113}
+  - {fileID: 118407377}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+--- !u!95 &166953187
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166953184}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b9de1489ddba4b7a8a0ee38715e339f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &289667625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,12 +1904,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 289667625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3, y: -2.05, z: 0}
+  m_LocalPosition: {x: -9.344517, y: -1.4166906, z: -0.0078125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1602167507}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 166953186}
+  m_RootOrder: 1
 --- !u!114 &289667628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1882,14 +1947,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381067070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.8, z: 0}
+  m_LocalPosition: {x: -4.044516, y: 3.4333093, z: -0.0078125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 101991974}
   - {fileID: 761925454}
   - {fileID: 1534245291}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 166953186}
+  m_RootOrder: 2
 --- !u!114 &381067072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1903,7 +1968,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEye: {fileID: 101991973}
   rightEye: {fileID: 761925453}
-  inititalAwakeSpeed: 0.05
+  inititalAwakeSpeed: 0.1
+  incrementAwakeSpeed: 0.05
+  maxAwakeSpeed: 0.5
   sigilAudioSource: {fileID: 1534245293}
   sigilSound: {fileID: 8300000, guid: 7378ad0a709bb404eac0f58ef099abbf, type: 3}
   demonAudioSource: {fileID: 381067073}
@@ -1914,6 +1981,7 @@ MonoBehaviour:
   cameraShake: {fileID: 966200217}
   sigilShakeTime: 1
   sigilShakeAmplitude: 0.5
+  generalDirector: {fileID: 166953185}
 --- !u!82 &381067073
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2312,11 +2380,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1388006111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -2, z: 0}
+  m_LocalPosition: {x: 1.9554839, y: -1.3666906, z: -0.0078125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 166953186}
+  m_RootOrder: 3
 --- !u!82 &1388006114
 AudioSource:
   m_ObjectHideFlags: 0

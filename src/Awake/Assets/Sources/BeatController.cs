@@ -12,6 +12,7 @@ public class BeatController : MonoBehaviour {
 	public float energyBeatCost;
 
 	float totalTimes = 0.0f;
+	bool beatActive = true;
 
 	void Start() {
 		StartCoroutine(PlayOneBeat());
@@ -21,7 +22,7 @@ public class BeatController : MonoBehaviour {
 	}
 
 	void Update() {
-		if ( Input.GetMouseButtonDown(0) ) {
+		if ( Input.GetMouseButtonDown(0) && beatActive ) {
 			if ( IsValidTouch(Input.mousePosition) ) {
 				ProcessTouch();
 			}
@@ -35,7 +36,7 @@ public class BeatController : MonoBehaviour {
 			beatIndicator.Beat();
 		}
 		yield return new WaitForSeconds(loopTime - totalTimes);
-		StartCoroutine(PlayOneBeat());
+		if ( beatActive ) StartCoroutine(PlayOneBeat());
 	}
 
 	bool IsValidTouch(Vector2 position) {
@@ -46,6 +47,10 @@ public class BeatController : MonoBehaviour {
 	void ProcessTouch() {
 		float energyInc = beatIndicator.GetEnergy() - energyBeatCost;
 		energyHolder.AddEnergy(energyInc * energyTransferFactor);
+	}
+
+	public void StopBeat() {
+		beatActive = false;
 	}
 
 }

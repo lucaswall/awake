@@ -142,4 +142,8 @@ public class SigilCanvas : MonoBehaviour {
 		fragments[currentFragment].EnableFragment();
 	}
 
+	public void AbortSigil() {
+		DestroySigil();
+	}
+
 }

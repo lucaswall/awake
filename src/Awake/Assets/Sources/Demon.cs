@@ -6,6 +6,8 @@ public class Demon : MonoBehaviour {
 	public SpriteRenderer leftEye;
 	public SpriteRenderer rightEye;
 	public float inititalAwakeSpeed;
+	public float incrementAwakeSpeed;
+	public float maxAwakeSpeed;
 	public AudioSource sigilAudioSource;
 	public AudioClip sigilSound;
 	public AudioSource demonAudioSource;
@@ -16,6 +18,7 @@ public class Demon : MonoBehaviour {
 	public CameraShake cameraShake;
 	public float sigilShakeTime;
 	public float sigilShakeAmplitude;
+	public GeneralDirector generalDirector;
 
 	float awakeSpeed = 0.0f;
 	float awakePercent = 0.0f;
@@ -43,6 +46,11 @@ public class Demon : MonoBehaviour {
 		StartCoroutine(FadeSigilAway());
 	}
 
+	void ProgressLevel() {
+		awakeSpeed += incrementAwakeSpeed;
+		if ( awakeSpeed > maxAwakeSpeed ) awakeSpeed = maxAwakeSpeed;
+	}
+
 	IEnumerator FadeDemonAway() {
 		while ( awakePercent > 0.0f ) {
 			awakePercent -= demonFadeSpeed * Time.deltaTime;
@@ -67,6 +75,7 @@ public class Demon : MonoBehaviour {
 		awakePercent += awakeSpeed * Time.deltaTime;
 		if ( awakePercent > 1.0f ) awakePercent = 1.0f;
 		SetAlpha(awakePercent);
+		if ( awakePercent >= 1.0f ) generalDirector.GameOver();
 	}
 
 	void SetAlpha(float a) {
