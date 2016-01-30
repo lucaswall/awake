@@ -13,7 +13,7 @@ public class GeneralDirector : MonoBehaviour {
 
 	void Update() {
 		if ( restartOnTap && Input.GetMouseButtonDown(0) ) {
-			SceneManager.LoadScene("Main");
+			SceneManager.LoadScene("Start");
 		}
 	}
 
