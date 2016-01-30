@@ -10,14 +10,21 @@ public class SigilFragment : MonoBehaviour {
 	void Awake() {
 		touchCollider = GetComponent<Collider>();
 		sprite = GetComponent<SpriteRenderer>();
+		DisableFragment();
 	}
 
 	public void OnCanvas() {
 		sigilCanvas = GetComponentInParent<SigilCanvas>();
 	}
 
-	public bool IsComplete() {
-		return ! sprite.enabled;
+	void DisableFragment() {
+		touchCollider.enabled = false;
+		sprite.enabled = false;
+	}
+
+	public void EnableFragment() {
+		touchCollider.enabled = true;
+		sprite.enabled = true;
 	}
 
 	void Update() {
@@ -36,8 +43,7 @@ public class SigilFragment : MonoBehaviour {
 	}
 
 	void ProcessTouch(Touch touch) {
-		touchCollider.enabled = false;
-		sprite.enabled = false;
+		DisableFragment();
 		sigilCanvas.SigilFragmentComplete(this);
 	}
 

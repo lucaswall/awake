@@ -12,6 +12,7 @@ public class SigilCanvas : MonoBehaviour {
 	int touchId;
 	GameObject activeGroup = null;
 	SigilFragment[] fragments;
+	int currentFragment;
 
 	void Update() {
 		if ( activeGroup != null ) {
@@ -26,26 +27,33 @@ public class SigilCanvas : MonoBehaviour {
 		activeGroup = Instantiate(sigilPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 		activeGroup.transform.SetParent(transform, false);
 		fragments = activeGroup.GetComponentsInChildren<SigilFragment>();
+		currentFragment = 0;
 		foreach ( SigilFragment fragment in fragments ) {
 			fragment.OnCanvas();
 		}
+		fragments[currentFragment].EnableFragment();
 		demon.Wakeup();
 	}
 
 	public void SigilFragmentComplete(SigilFragment fragment) {
-		if ( IsSigilComplete() ) {
-			Destroy(activeGroup);
-			activeGroup = null;
-			energyHolder.DrainAllEnergy();
-			UnlockTrace();
-		}
+		if ( IsSigilComplete() ) DestroySigil();
+		else EnableNextFragment();
+	}
+
+	void DestroySigil() {
+		Destroy(activeGroup);
+		activeGroup = null;
+		energyHolder.DrainAllEnergy();
+		UnlockTrace();
+	}
+
+	void EnableNextFragment() {
+		if ( IsSigilComplete() ) return;
+		fragments[++currentFragment].EnableFragment();
 	}
 
 	bool IsSigilComplete() {
-		foreach ( SigilFragment fragment in fragments ) {
-			if ( ! fragment.IsComplete() ) return false;
-		}
-		return true;
+		return currentFragment >= fragments.Length;
 	}
 
 	void CheckForInitialTouch() {

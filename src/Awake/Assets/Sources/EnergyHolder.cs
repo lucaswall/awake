@@ -16,6 +16,7 @@ public class EnergyHolder : MonoBehaviour {
 		if ( energy > 0.0f ) {
 			energy -= energyDisipation * Time.deltaTime;
 			if ( energy < 0.0f ) energy = 0.0f;
+			SetAlpha(energy);
 		}
 	}
 
