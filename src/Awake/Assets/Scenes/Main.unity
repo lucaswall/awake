@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 289667626}
+  alphaPerSec: 2
 --- !u!1 &564002914
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +273,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatSource: {fileID: 564002916}
   beatIndicator: {fileID: 289667628}
+  times:
+  - 0.1
+  - 0.6
+  - 0.3
+  - 0.3
+  loopTime: 2.2
 --- !u!1 &966200211
 GameObject:
   m_ObjectHideFlags: 0
