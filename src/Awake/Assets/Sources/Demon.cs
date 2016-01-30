@@ -12,6 +12,7 @@ public class Demon : MonoBehaviour {
 	public AudioClip sigilSound;
 	public AudioSource demonAudioSource;
 	public AudioClip demonPushBackSound;
+	public AudioClip demonAttackSound;
 	public SpriteRenderer sigilImage;
 	public float sigilFadeSpeed;
 	public float demonFadeSpeed;
@@ -22,6 +23,7 @@ public class Demon : MonoBehaviour {
 
 	float awakeSpeed = 0.0f;
 	float awakePercent = 0.0f;
+	bool awake = false;
 
 	void Start() {
 		SetAlpha(0.0f);
@@ -75,7 +77,11 @@ public class Demon : MonoBehaviour {
 		awakePercent += awakeSpeed * Time.deltaTime;
 		if ( awakePercent > 1.0f ) awakePercent = 1.0f;
 		SetAlpha(awakePercent);
-		if ( awakePercent >= 1.0f ) generalDirector.GameOver();
+		if ( awakePercent >= 1.0f && ! awake ) {
+			awake = true;
+			demonAudioSource.PlayOneShot(demonAttackSound);
+			generalDirector.GameOver();
+		}
 	}
 
 	void SetAlpha(float a) {

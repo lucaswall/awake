@@ -1816,6 +1816,7 @@ MonoBehaviour:
   animator: {fileID: 166953187}
   beatController: {fileID: 564002917}
   sigilCanvas: {fileID: 1388006112}
+  demon: {fileID: 381067072}
 --- !u!4 &166953186
 Transform:
   m_ObjectHideFlags: 0
@@ -1975,6 +1976,7 @@ MonoBehaviour:
   sigilSound: {fileID: 8300000, guid: 7378ad0a709bb404eac0f58ef099abbf, type: 3}
   demonAudioSource: {fileID: 381067073}
   demonPushBackSound: {fileID: 8300000, guid: e5801e323f09f48ae83064f41cce4513, type: 3}
+  demonAttackSound: {fileID: 8300000, guid: 070afe1f65daf4e45a2befa12500441e, type: 3}
   sigilImage: {fileID: 1534245292}
   sigilFadeSpeed: 0.5
   demonFadeSpeed: 1
