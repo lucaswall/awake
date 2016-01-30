@@ -2897,7 +2897,7 @@ GameObject:
   - 212: {fileID: 1534245292}
   - 82: {fileID: 1534245293}
   m_Layer: 0
-  m_Name: sigil
+  m_Name: Sigil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2910,8 +2910,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1534245290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 0.24000001, z: 0}
-  m_LocalScale: {x: 1.6953349, y: 1.912627, z: 1}
+  m_LocalPosition: {x: -0.02, y: 0.03, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 381067071}
   m_RootOrder: 6
