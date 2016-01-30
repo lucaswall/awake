@@ -1,7 +1,12 @@
-# awake
-A Global Game Jan 2016 game
+# Awake!
+## A Global GameJam 2016 game
+
+Authors:
+
+- Lucas Wall <wall.lucas@gmail.com>
+- Mariana Carril
 
 
-Some SFX got from: http://www.freesfx.co.uk
+Some SFX were downloaded from: http://www.freesfx.co.uk
 
 
