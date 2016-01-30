@@ -51,7 +51,6 @@ public class BeatController : MonoBehaviour {
 
 	public void StopBeat() {
 		beatActive = false;
-		beatSource.Stop();
 	}
 
 }
