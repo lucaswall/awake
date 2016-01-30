@@ -2110,8 +2110,8 @@ MonoBehaviour:
   - 0.3
   loopTime: 2.2
   energyHolder: {fileID: 118407378}
-  energyTransferFactor: 0.8
-  energyBeatCost: 0.3
+  energyTransferFactor: 0.5
+  energyBeatCost: 0
 --- !u!1 &761925452
 GameObject:
   m_ObjectHideFlags: 0

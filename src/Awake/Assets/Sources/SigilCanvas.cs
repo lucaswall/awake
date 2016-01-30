@@ -136,6 +136,7 @@ public class SigilCanvas : MonoBehaviour {
 	void FailedSigilReset() {
 		audioSource.PlayOneShot(sigilFailedSound);
 		UnlockTrace();
+		sigilTrace.Clear();
 		fragments[currentFragment].DisableFragment();
 		currentFragment = 0;
 		fragments[currentFragment].EnableFragment();
