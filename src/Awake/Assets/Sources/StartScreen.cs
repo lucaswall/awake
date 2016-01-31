@@ -7,11 +7,7 @@ public class StartScreen : MonoBehaviour {
 
 	public Text tapToStartText;
 	public float tapToStartSpeed;
-	public Image black;
-	public float blackEnterSpeed;
-	public Text introText;
-	public float introTextEnterSpeed;
-	public float scaleIncrement;
+	public Animator animator;
 
 	float textCount;
 	bool started = false;
@@ -23,7 +19,7 @@ public class StartScreen : MonoBehaviour {
 	void Update() {
 		if ( Input.GetMouseButtonDown(0) && ! started ) {
 			started = true;
-			StartCoroutine(StartSequence());
+			animator.SetTrigger("Intro");
 		}
 		textCount -= Time.deltaTime;
 		if ( textCount <= 0.0f ) {
@@ -32,23 +28,7 @@ public class StartScreen : MonoBehaviour {
 		}
 	}
 
-	IEnumerator StartSequence() {
-		while ( black.color.a < 1.0f ) {
-			Color c = black.color;
-			c.a += blackEnterSpeed * Time.deltaTime;
-			black.color = c;
-			yield return null;
-		}
-		while ( introText.color.a < 1.0f ) {
-			Color c = introText.color;
-			c.a += introTextEnterSpeed * Time.deltaTime;
-			introText.color = c;
-			Vector3 scale = introText.transform.localScale;
-			scale.x += scaleIncrement * Time.deltaTime;
-			scale.y += scaleIncrement * Time.deltaTime;
-			introText.transform.localScale = scale;
-			yield return null;
-		}
+	public void StartGame() {
 		SceneManager.LoadScene("Main");
 	}
 
