@@ -279,12 +279,14 @@ MonoBehaviour:
   tapToStartText: {fileID: 1044990081}
   tapToStartSpeed: 0.5
   animator: {fileID: 491747906}
+  background: {fileID: 1763812719}
   gameTitle: {fileID: 1875985792}
   shakeAmplitude: 2
   minShakeInterval: 2
   maxShakeInterval: 3
   shakeLoops: 5
   shakeInterval: 0.1
+  backgroundSpeed: 0.8
 --- !u!1 &555864729
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 0d7d8754fe6e4447f96d4aa2c44a093d, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -863,7 +865,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 917270269043b4195b6bba02a402d0a7, type: 3}
-  m_Type: 0
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

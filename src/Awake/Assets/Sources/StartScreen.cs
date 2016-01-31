@@ -8,13 +8,14 @@ public class StartScreen : MonoBehaviour {
 	public Text tapToStartText;
 	public float tapToStartSpeed;
 	public Animator animator;
-
+	public Image background;
 	public Transform gameTitle;
 	public float shakeAmplitude;
 	public float minShakeInterval;
 	public float maxShakeInterval;
 	public int shakeLoops;
 	public float shakeInterval;
+	public float backgroundSpeed;
 
 	float textCount;
 	bool started = false;
@@ -29,10 +30,17 @@ public class StartScreen : MonoBehaviour {
 		CheckForTouch();
 		TapToStartBlink();
 		CheckTitleShake();
+		MoveBackground();
 	}
 
 	public void StartGame() {
 		SceneManager.LoadScene("Main");
+	}
+
+	void MoveBackground() {
+		Vector2 pos = background.material.mainTextureOffset;
+		pos.x += backgroundSpeed * Time.deltaTime;
+		background.material.mainTextureOffset = pos;
 	}
 
 	void CheckForTouch() {
