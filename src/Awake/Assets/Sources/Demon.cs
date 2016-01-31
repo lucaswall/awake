@@ -23,6 +23,7 @@ public class Demon : MonoBehaviour {
 	public AudioClip demonPushBackSound;
 	public AudioClip demonAttackSound;
 	public SpriteRenderer sigilImage;
+	public Sprite[] sigilImages;
 	public float sigilFadeSpeed;
 	public float demonFadeSpeed;
 	public CameraShake cameraShake;
@@ -55,6 +56,7 @@ public class Demon : MonoBehaviour {
 		sigilAudioSource.PlayOneShot(sigilSound);
 		demonAudioSource.PlayOneShot(demonPushBackSound);
 		awakeSpeed = 0.0f;
+		sigilImage.sprite = sigilImages[Random.Range(0, sigilImages.Length)];
 		SetSigilAlpha(1.0f);
 		cameraShake.Shake(sigilShakeTime, sigilShakeAmplitude);
 		StartCoroutine(FadeDemonAway());
