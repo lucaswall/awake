@@ -279,7 +279,12 @@ MonoBehaviour:
   tapToStartText: {fileID: 1044990081}
   tapToStartSpeed: 0.5
   animator: {fileID: 491747906}
-  audioSource: {fileID: 0}
+  gameTitle: {fileID: 1875985792}
+  shakeAmplitude: 2
+  minShakeInterval: 2
+  maxShakeInterval: 3
+  shakeLoops: 5
+  shakeInterval: 0.1
 --- !u!1 &555864729
 GameObject:
   m_ObjectHideFlags: 0
