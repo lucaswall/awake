@@ -8,6 +8,7 @@ public class StartScreen : MonoBehaviour {
 	public Text tapToStartText;
 	public float tapToStartSpeed;
 	public Animator animator;
+	public AudioSource audioSource;
 
 	float textCount;
 	bool started = false;
