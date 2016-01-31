@@ -90,14 +90,14 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: ar.com.kadath.awake
-  bundleVersion: 1.0.1
+  bundleVersion: 1.0.2
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: 2761707ed9c5f458881ed8a416a5f5e4
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -105,7 +105,7 @@ PlayerSettings:
   stripEngineCode: 1
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
-  iPhoneBuildNumber: 3
+  iPhoneBuildNumber: 4
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
