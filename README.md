@@ -30,3 +30,14 @@ https://play.google.com/store/apps/details?id=ar.com.kadath.awake
 Some SFX were downloaded from: http://www.freesfx.co.uk
 
 Other SFX were generated with Bfxr - http://www.bfxr.net
+
+
+### License
+
+Awake! 2016(c) by Lucas Wall and Mariana Carril.
+
+Awake! is licensed under a Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License.
+
+You should have received a copy of the license along with this
+work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
