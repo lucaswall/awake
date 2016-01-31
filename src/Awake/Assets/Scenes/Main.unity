@@ -2866,6 +2866,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sigilPrefab: {fileID: 115738, guid: 529de94e4376c4d2a932fea6fef3a6f6, type: 2}
+  sigilsPrefabs:
+  - {fileID: 115738, guid: 529de94e4376c4d2a932fea6fef3a6f6, type: 2}
+  - {fileID: 117330, guid: 4c9404279a0a242e987a9bffe1f12976, type: 2}
+  - {fileID: 117912, guid: bb332a091afc64f01a9896c990c957ca, type: 2}
+  - {fileID: 158350, guid: cd632ca2e5c0d4d619106f67dd94cf3c, type: 2}
+  - {fileID: 178422, guid: b54d237532618436db9b395e3b6cdd4d, type: 2}
+  - {fileID: 195942, guid: 3f1015d6c901e4409ab98daec584f28f, type: 2}
+  sigilsHighStart: 1
+  sigilsLowEnd: 4
+  sigilsAdvanceLow: 5
+  sigilsAdvanceHigh: 3
   energyHolder: {fileID: 118407378}
   sigilTrace: {fileID: 127923602}
   demon: {fileID: 381067072}
@@ -2876,6 +2887,10 @@ MonoBehaviour:
   sigilCountText: {fileID: 940561843}
   swipeText: {fileID: 903777288}
   swipeTextSpeed: 0.1
+  sigilsLowIndex: 0
+  sigilsHighIndex: 0
+  sigilsLowIndexCount: 0
+  sigilsHightIndexCount: 0
 --- !u!4 &1388006113
 Transform:
   m_ObjectHideFlags: 0

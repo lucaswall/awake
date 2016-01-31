@@ -5,7 +5,11 @@ using GameAnalyticsSDK;
 
 public class SigilCanvas : MonoBehaviour {
 
-	public GameObject sigilPrefab;
+	public GameObject[] sigilsPrefabs;
+	public int sigilsHighStart; // high value of array to start with.
+	public int sigilsLowEnd; // low value of array to end with.
+	public int sigilsAdvanceLow; // rounds to advance lower index towards more sigils.
+	public int sigilsAdvanceHigh; // rounds to advance higher index towards more sigils.
 	public EnergyHolder energyHolder;
 	public ParticleSystem sigilTrace;
 	public Demon demon;
@@ -26,6 +30,8 @@ public class SigilCanvas : MonoBehaviour {
 	bool showText = false;
 	float textCounter;
 	bool tutorialDone = false;
+	int sigilsLowIndex;
+	int sigilsHighIndex;
 
 	public int SigilCounter {
 		get { return sigilCounter; }
@@ -34,6 +40,8 @@ public class SigilCanvas : MonoBehaviour {
 	void Start() {
 		sigilCountText.text = "";
 		swipeText.enabled = false;
+		sigilsLowIndex = 0;
+		sigilsHighIndex = sigilsHighStart;
 	}
 
 	void Update() {
@@ -54,7 +62,7 @@ public class SigilCanvas : MonoBehaviour {
 
 	void InstantiateNewSigil() {
 		//Debug.Log("New sigil!");
-		activeGroup = Instantiate(sigilPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		activeGroup = NewSigilGroup();
 		activeGroup.transform.SetParent(transform, false);
 		fragments = activeGroup.GetComponentsInChildren<SigilFragment>();
 		currentFragment = 0;
@@ -70,6 +78,11 @@ public class SigilCanvas : MonoBehaviour {
 		}
 	}
 
+	GameObject NewSigilGroup() {
+		int idx = Random.Range(sigilsLowIndex, sigilsHighIndex + 1);
+		return Instantiate(sigilsPrefabs[idx], Vector3.zero, Quaternion.identity) as GameObject;
+	}
+
 	public void SigilFragmentComplete(SigilFragment fragment) {
 		audioSource.PlayOneShot(sigiltouchedSound);
 		if ( IsSigilComplete() ) {
@@ -78,8 +91,22 @@ public class SigilCanvas : MonoBehaviour {
 			GameAnalytics.NewProgressionEvent(GA_Progression.GAProgressionStatus.GAProgressionStatusComplete,
 					"level", sigilCounter.ToString(), "", sigilCounter);
 			DisableSwipeText();
+			AdjustSigilsIndex();
 		} else {
 			EnableNextFragment();
+		}
+	}
+
+	void AdjustSigilsIndex() {
+		if ( ( sigilCounter % sigilsAdvanceLow ) == 0 ) {
+			if ( ++sigilsLowIndex > sigilsLowEnd ) {
+				sigilsLowIndex = sigilsLowEnd;
+			}
+		}
+		if ( ( sigilCounter % sigilsAdvanceHigh ) == 0 ) {
+			if ( ++sigilsHighIndex > ( sigilsPrefabs.Length - 1 ) ) {
+				sigilsHighIndex = sigilsPrefabs.Length - 1;
+			}
 		}
 	}
 
