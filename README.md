@@ -21,6 +21,9 @@ The game was built using Unity3D.
 
 You can access its repository at GitHub. https://github.com/lucaswall/awake
 
+You can download an Android build from Google Play.
+https://play.google.com/store/apps/details?id=ar.com.kadath.awake
+
 
 ### Credits
 
