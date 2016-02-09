@@ -53,6 +53,7 @@ public class Demon : MonoBehaviour {
 	}
 
 	public void PushBack() {
+		if ( awake ) return;
 		sigilAudioSource.PlayOneShot(sigilSound);
 		demonAudioSource.PlayOneShot(demonPushBackSound);
 		awakeSpeed = 0.0f;
